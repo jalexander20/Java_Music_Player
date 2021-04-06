@@ -1,4 +1,4 @@
-package sample;
+
 // imports all of the import statements
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -33,16 +33,16 @@ public class FinalProject_CST240_JA extends Application
 
         // Creates the array for all 10 songs in the playlist
         File soundFile[] = new File[10];
-        soundFile[0] = new File("src/LLCoolJMamaSaidKnockYouOut.mp3");
-        soundFile[1] = new File("src/SupaBweEntropyAudiofeatDounia128kbps.mp3");
-        soundFile[2] = new File("src/Drake-WeMadeItCleanFeat.SouljaBoyBESTVERSION128kbps.mp3");
-        soundFile[3] = new File("src/JColeColeSummerLyricsonScreen128kbps.mp3");
-        soundFile[4] = new File("src/ADHDCleanBestEditKendrickLamar128kbps.mp3");
-        soundFile[5] = new File("src/KendrickLamar-SwimmingPoolsCLEAN128 kbps.mp3");
-        soundFile[6] = new File("src/NoIdeaDonToliverCleanVersion128kbps.mp3");
-        soundFile[7] = new File("src/TierraWhackFleaMarketExtended128kbps.mp3");
-        soundFile[8] = new File("src/FutureSticktotheModelsRadioEdit128kbps.mp3");
-        soundFile[9] = new File("src/JamieFoxxWinnerftJustinTimberlakeTI128 kbps.mp3");
+        soundFile[0] = new File(""); // Type MP3 File Path In Between Quotations Marks
+        soundFile[1] = new File(""); // Type MP3 File Path In Between Quotations Marks 
+        soundFile[2] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[3] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[4] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[5] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[6] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[7] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[8] = new File(""); // Type MP3 File Path In Between Quotation Marks
+        soundFile[9] = new File(""); // Type MP3 File Path In Between Quotation Marks
 
         //Creates the buttons for play, pause, stop, rewind, and fast forward buttons
         Button playButton = new Button("");
@@ -53,7 +53,7 @@ public class FinalProject_CST240_JA extends Application
         Button selector = new Button("Select File");
 
         // Imports the graphic used for the play button
-        Image playPic = new Image("file:src/ScreenShot20201129at121811AMPL.png");
+        Image playPic = new Image("file:"); //Type File Path For Play Button In Between Quotations After "file"
         ImageView playpicIV = new ImageView(playPic);
         playpicIV.setFitHeight(40);
         playpicIV.setPreserveRatio(true);
@@ -61,7 +61,7 @@ public class FinalProject_CST240_JA extends Application
         playButton.setGraphic(playpicIV);
 
         // Imports the graphic used for the pause button
-        Image pauPic = new Image("file:src/ScreenShot2020129at121831AMP.png");
+        Image pauPic = new Image("file:"); //Type File Path For Pause Button In Between Quotations After "file"
         ImageView pauPicIV = new ImageView(pauPic);
         pauPicIV.setFitHeight(40);
         pauPicIV.setPreserveRatio(true);
@@ -69,7 +69,7 @@ public class FinalProject_CST240_JA extends Application
         pauseButton.setGraphic(pauPicIV);
 
         // Imports te graphic used for the stop button
-        Image stopPic = new Image("file:src/ScreenShot2020129at121745AMST.png");
+        Image stopPic = new Image("file:"); //Type File Path For Stop Button In Between Quotations After "file"
         ImageView stopPicIV = new ImageView(stopPic);
         stopPicIV.setFitHeight(40);
         stopPicIV.setPreserveRatio(true);
@@ -78,7 +78,7 @@ public class FinalProject_CST240_JA extends Application
 
 
         // Imports the graphic used for the fast forward button
-        Image fastfor = new Image("file:src/ScreenShot20201129at121845AMS.png");
+        Image fastfor = new Image("file:"); //Type File Path For FastForward Button In Between Quotations After "file"
         ImageView fastforIV = new ImageView(fastfor);
         fastforIV.setFitHeight(40);
         fastforIV.setPreserveRatio(true);
@@ -86,7 +86,7 @@ public class FinalProject_CST240_JA extends Application
         fastForward.setGraphic(fastforIV);
 
         // Imports the graphic used for the rewind button
-        Image rr = new Image("file:src/ScreenShot20201129at121709AMRR.png");
+        Image rr = new Image("file:"); //Type File Path For Rewind Button In Between Quotations After "file"
         ImageView rrIV = new ImageView(rr);
         rrIV.setFitHeight(40);
         rrIV.setPreserveRatio(true);
