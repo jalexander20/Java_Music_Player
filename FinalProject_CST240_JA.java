@@ -1,0 +1,173 @@
+package sample;
+// imports all of the import statements
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.util.Duration;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import java.io.File;
+
+
+public class FinalProject_CST240_JA extends Application
+{
+
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
+
+
+    @Override
+    public void start(Stage primaryStage)
+    {
+        final Label label = new Label();
+
+        // Creates the array for all 10 songs in the playlist
+        File soundFile[] = new File[10];
+        soundFile[0] = new File("src/LLCoolJMamaSaidKnockYouOut.mp3");
+        soundFile[1] = new File("src/SupaBweEntropyAudiofeatDounia128kbps.mp3");
+        soundFile[2] = new File("src/Drake-WeMadeItCleanFeat.SouljaBoyBESTVERSION128kbps.mp3");
+        soundFile[3] = new File("src/JColeColeSummerLyricsonScreen128kbps.mp3");
+        soundFile[4] = new File("src/ADHDCleanBestEditKendrickLamar128kbps.mp3");
+        soundFile[5] = new File("src/KendrickLamar-SwimmingPoolsCLEAN128 kbps.mp3");
+        soundFile[6] = new File("src/NoIdeaDonToliverCleanVersion128kbps.mp3");
+        soundFile[7] = new File("src/TierraWhackFleaMarketExtended128kbps.mp3");
+        soundFile[8] = new File("src/FutureSticktotheModelsRadioEdit128kbps.mp3");
+        soundFile[9] = new File("src/JamieFoxxWinnerftJustinTimberlakeTI128 kbps.mp3");
+
+        //Creates the buttons for play, pause, stop, rewind, and fast forward buttons
+        Button playButton = new Button("");
+        Button pauseButton = new Button("");
+        Button stopButton = new Button("");
+        Button fastForward = new Button("");
+        Button rewind = new Button("");
+        Button selector = new Button("Select File");
+
+        // Imports the graphic used for the play button
+        Image playPic = new Image("file:src/ScreenShot20201129at121811AMPL.png");
+        ImageView playpicIV = new ImageView(playPic);
+        playpicIV.setFitHeight(40);
+        playpicIV.setPreserveRatio(true);
+        playButton.setPrefSize(50,20);
+        playButton.setGraphic(playpicIV);
+
+        // Imports the graphic used for the pause button
+        Image pauPic = new Image("file:src/ScreenShot2020129at121831AMP.png");
+        ImageView pauPicIV = new ImageView(pauPic);
+        pauPicIV.setFitHeight(40);
+        pauPicIV.setPreserveRatio(true);
+        pauseButton.setPrefSize(50,20);
+        pauseButton.setGraphic(pauPicIV);
+
+        // Imports te graphic used for the stop button
+        Image stopPic = new Image("file:src/ScreenShot2020129at121745AMST.png");
+        ImageView stopPicIV = new ImageView(stopPic);
+        stopPicIV.setFitHeight(40);
+        stopPicIV.setPreserveRatio(true);
+        stopButton.setPrefSize(50,20);
+        stopButton.setGraphic(stopPicIV);
+
+
+        // Imports the graphic used for the fast forward button
+        Image fastfor = new Image("file:src/ScreenShot20201129at121845AMS.png");
+        ImageView fastforIV = new ImageView(fastfor);
+        fastforIV.setFitHeight(40);
+        fastforIV.setPreserveRatio(true);
+        fastForward.setPrefSize(50,20);
+        fastForward.setGraphic(fastforIV);
+
+        // Imports the graphic used for the rewind button
+        Image rr = new Image("file:src/ScreenShot20201129at121709AMRR.png");
+        ImageView rrIV = new ImageView(rr);
+        rrIV.setFitHeight(40);
+        rrIV.setPreserveRatio(true);
+        rewind.setPrefSize(50,20);
+        rewind.setGraphic(rrIV);
+
+        // Gets the song from the array and puts it into a format that java can read
+        Media[] songs = {new Media(soundFile[0].toURI().toString())};
+        MediaPlayer[] player = new MediaPlayer[]{new MediaPlayer(songs[0])};
+
+        // Creates the file selector button
+        selector.setOnAction(event ->
+        {
+            FileChooser fc = new FileChooser();
+            fc.setInitialDirectory(new File("/Users/juan/Desktop/MediaPlayer4/src"));
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.mp3", "*.mp3"));
+            File file = fc.showOpenDialog(null);
+            String path = file.getAbsolutePath();
+            path = path.replace("\\", "/");
+            songs[0] = new Media(new File(path).toURI().toString());
+            player[0] = new MediaPlayer(songs[0]);
+
+            // Displays the name of the song
+            label.setText("Now Playing: "+ file.getName());
+            primaryStage.setTitle(label.getText());
+
+        });
+
+            // Links the play button to the play action
+            playButton.setOnAction(event ->
+            {
+                player[0].play();
+            });
+
+            // Links the pause button to the pause action
+            pauseButton.setOnAction(event ->
+            {
+                player[0].pause();
+            });
+
+            // Links the stop button to the stop action
+            stopButton.setOnAction(event ->
+            {
+                player[0].stop();
+            });
+
+            // Links the fast forward button to the fast forward action
+            fastForward.setOnAction(event ->
+            {
+                double t = player[0].getCurrentTime().toSeconds();
+                t = t + 5;
+                player[0].seek(new Duration(t * 1000));
+            });
+
+            // Links the rewind button to the rewind action
+            rewind.setOnAction(event ->
+            {
+                double t = player[0].getCurrentTime().toSeconds();
+                t = t - 10;
+                player[0].seek(new Duration(t * 1000));
+            });
+
+        // Adds the buttons to the HBox layout
+        HBox hbox = new HBox(10,playButton,pauseButton,stopButton,rewind,fastForward,selector);
+        // Centers all of the buttons
+        hbox.setAlignment(Pos.CENTER);
+        hbox.setPadding(new Insets(10));
+
+        // Adds the HBox to the scene and displays
+        Scene scene = new Scene(hbox);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+
+}
+
+/*
+    Juan Alexander
+    Final Programming Project
+    CST 240 - 005
+    11/29/20
+ */
