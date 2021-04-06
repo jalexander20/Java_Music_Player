@@ -101,7 +101,7 @@ public class FinalProject_CST240_JA extends Application
         selector.setOnAction(event ->
         {
             FileChooser fc = new FileChooser();
-            fc.setInitialDirectory(new File("/Users/juan/Desktop/MediaPlayer4/src"));
+            fc.setInitialDirectory(new File("")); //Enter file path of where the program should look for the MP3 files In Between Quotation Marks
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.mp3", "*.mp3"));
             File file = fc.showOpenDialog(null);
             String path = file.getAbsolutePath();
